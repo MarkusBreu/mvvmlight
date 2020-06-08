@@ -19,13 +19,13 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows.Input;
 
-#if !NET_FXCORE
+#if !NET_FXCORE 
 using GalaSoft.MvvmLight.Helpers;
 #endif
 
 ////using GalaSoft.Utilities.Attributes;
 
-#if PLATFORMNET45
+#if PLATFORMNET45 || NET_CORE
 namespace GalaSoft.MvvmLight.CommandWpf
 #else
 namespace GalaSoft.MvvmLight.Command
