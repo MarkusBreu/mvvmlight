@@ -6,7 +6,7 @@
     <Product />
     <Company>GalaSoft Laurent Bugnion @ http://www.galasoft.ch</Company>
     <Authors>Laurent Bugnion (GalaSoft)</Authors>
-    <Version>5.4.1.0</Version>
+    <Version>5.4.1.2</Version>
     <PackageId>MvvmLightLibsStd10</PackageId>
     <Copyright>Copyright @ GalaSoft Laurent Bugnion 2009-2018</Copyright>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>

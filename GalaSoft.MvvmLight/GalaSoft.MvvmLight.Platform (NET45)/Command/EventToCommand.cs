@@ -16,7 +16,12 @@
 using System;
 using System.Windows;
 using System.Windows.Input;
+
+#if !NET_CORE
 using System.Windows.Interactivity;
+#else
+using Microsoft.Xaml.Behaviors;
+#endif
 
 #if SILVERLIGHT
 using System.Windows.Controls;
@@ -116,7 +121,7 @@ namespace GalaSoft.MvvmLight.Command
         {
             get
             {
-                return (ICommand) GetValue(CommandProperty);
+                return (ICommand)GetValue(CommandProperty);
             }
 
             set
@@ -174,7 +179,7 @@ namespace GalaSoft.MvvmLight.Command
         {
             get
             {
-                return (bool) GetValue(MustToggleIsEnabledProperty);
+                return (bool)GetValue(MustToggleIsEnabledProperty);
             }
 
             set
@@ -347,7 +352,7 @@ namespace GalaSoft.MvvmLight.Command
         /// <param name="parameter">The EventArgs of the fired event.</param>
         protected override void Invoke(object parameter)
         {
-            if (AssociatedElementIsDisabled() 
+            if (AssociatedElementIsDisabled()
                 && !AlwaysInvokeCommand)
             {
                 return;
@@ -382,10 +387,10 @@ namespace GalaSoft.MvvmLight.Command
 
             if (e.OldValue != null)
             {
-                ((ICommand) e.OldValue).CanExecuteChanged -= element.OnCommandCanExecuteChanged;
+                ((ICommand)e.OldValue).CanExecuteChanged -= element.OnCommandCanExecuteChanged;
             }
 
-            var command = (ICommand) e.NewValue;
+            var command = (ICommand)e.NewValue;
 
             if (command != null)
             {

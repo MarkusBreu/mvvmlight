@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -22,7 +22,7 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\GalaSoft.MvvmLight.STD10\GalaSoft.MvvmLight.STD10.snk</AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
-    <AssemblyVersion>5.4.1.0</AssemblyVersion>
+    <AssemblyVersion>5.4.1.2</AssemblyVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
@@ -38,11 +38,30 @@
 
   <ItemGroup>
     <Compile Include="..\GalaSoft.MvvmLight.Platform %28NET45%29\Properties\AssemblyInfo.cs" />
-    <Compile Include="..\GalaSoft.MvvmLight.Platform %28NET45%29\Threading\DispatcherHelper.cs" />
+    <Compile Include="..\GalaSoft.MvvmLight.Platform %28NET45%29\Threading\DispatcherHelper.cs">
+      <Link>Threading\DispatcherHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\GalaSoft.MvvmLight.Platform %28NET45%29\Command\EventToCommand.cs">
+      <Link>Command\EventToCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\GalaSoft.MvvmLight.Platform %28NET45%29\Command\IEventArgsConverter.cs">
+      <Link>Command\IEventArgsConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\GalaSoft.MvvmLight %28PCL%29\Command\RelayCommand.cs" Link="Command\RelayCommand.cs" />
+    <Compile Include="..\GalaSoft.MvvmLight %28PCL%29\Command\RelayCommandGeneric.cs">
+      <Link>Command\RelayCommandGeneric.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="..\GalaSoft.MvvmLight %28PCL%29\License.txt" Link="License.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GalaSoft.MvvmLight.STD10\GalaSoft.MvvmLight.STD10.csproj" />
   </ItemGroup>
 
 </Project>
